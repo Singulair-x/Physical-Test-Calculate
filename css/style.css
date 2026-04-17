@@ -1,0 +1,413 @@
+:root {
+  --bg-color: #f4f6f8;
+  --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  --text-color: #333;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(255, 255, 255, 0.5);
+  --card-shadow: rgba(31, 38, 135, 0.1);
+  --primary: #3498db;
+  --primary-hover: #2980b9;
+  --secondary: #2ecc71;
+  --secondary-hover: #27ae60;
+  --title-color: #2c3e50;
+  --desc-color: #555;
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --input-border: rgba(255, 255, 255, 0.6);
+  --input-text: #333;
+  --nav-bg: rgba(255, 255, 255, 0.4);
+  --nav-text: #2c3e50;
+  --details-border: rgba(0, 0, 0, 0.05);
+  --gray-bg: rgba(255, 255, 255, 0.5);
+  --gray-highlight: rgba(255, 255, 255, 0.6);
+  --info-box-bg: rgba(240, 251, 255, 0.8);
+  
+  --highlight-color: #e74c3c;
+  --pass-bg: rgba(212, 237, 218, 0.8);
+  --pass-text: #155724;
+  --fail-bg: rgba(248, 215, 218, 0.8);
+  --fail-text: #721c24;
+  --backdrop-blur: blur(8px);
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;
+  --bg-gradient: linear-gradient(135deg, #09090e 0%, #1c1a27 100%);
+  --text-color: #e0e0e0;
+  --card-bg: rgba(30, 30, 30, 0.65);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  
+  
+  --primary: #2980b9;
+  --primary-hover: #1f618d;
+  --secondary: #27ae60;
+  --secondary-hover: #1e8449;
+
+  --title-color: #fff;
+  --desc-color: #aaa;
+  --input-bg: rgba(44, 44, 44, 0.7);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-text: #eee;
+  --nav-bg: rgba(30, 30, 30, 0.5);
+  --nav-text: #e0e0e0;
+  --details-border: rgba(255, 255, 255, 0.05);
+  --gray-bg: rgba(42, 42, 42, 0.65);
+  --gray-highlight: rgba(42, 42, 42, 0.65);
+  --info-box-bg: rgba(30, 42, 51, 0.8);
+  
+  --highlight-color: #ff6b6b;
+  --pass-bg: rgba(30, 58, 30, 0.8);
+  --pass-text: #81c784;
+  --fail-bg: rgba(58, 30, 30, 0.8);
+  --fail-text: #e57373;
+  --backdrop-blur: blur(8px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-color); 
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--text-color); transition: background-image 0.3s, background-color 0.3s, color 0.3s;
+  
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--title-color);
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-color);
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px 0 var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 10px;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: var(--desc-color);
+  margin-bottom: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+  min-width: 150px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--input-text);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus, input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.primary-btn {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  background-color: var(--secondary-hover);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--desc-color);
+  padding: 30px 0;
+  font-size: 0.95rem;
+}
+
+.score-display {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.score-box {
+  text-align: center;
+  background: var(--gray-bg);
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+.score-title {
+  display: block;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.score-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--title-color);
+}
+
+.score-value.highlighter {
+  color: var(--highlight-color);
+}
+
+.grad-result-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.grad-pass {
+  background-color: var(--pass-bg);
+  color: var(--pass-text);
+}
+
+.grad-fail {
+  background-color: var(--fail-bg);
+  color: var(--fail-text);
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #bdc3c7;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--primary-hover);
+  text-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+}
+
+
+.top-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+  color: var(--nav-text);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 16px 0 var(--card-shadow);
+}
+.nav-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.nav-controls {
+  display: flex;
+  gap: 10px;
+}
+.nav-select {
+  background: var(--input-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  padding: 5px 10px;
+  border-radius: 4px;
+  outline: none;
+  width: auto;
+}
+
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  transition: all 0.2s;
+  background: var(--input-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  color: var(--input-text);
+  user-select: none;
+}
+.radio-label:has(input[type="radio"]:checked) {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+.radio-label input[type="radio"] {
+  display: none;
+}
+
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.left-column, .right-column {
+  display: contents;
+}
+
+#grad-section {
+  order: 99; 
+}
+
+@media (min-width: 900px) {
+  .main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 20px;
+  }
+  .left-column, .right-column {
+    display: block;
+  }
+  #grad-section {
+    order: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-title {
+    display: none;
+  }
+  .nav-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  header h1 {
+    font-size: 1.4rem;
+  }
+}
+
+.details-list-item {
+  border-bottom: 1px solid var(--details-border) !important;
+}
+
+.dynamic-html-box {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: var(--text-color) !important;
+  border-color: var(--input-border) !important;
+}
+.dynamic-gray-box {
+  background: var(--gray-highlight) !important;
+  backdrop-filter: blur(8px) !important;
+  color: var(--text-color) !important;
+}
+.dynamic-info-box {
+  background: var(--info-box-bg) !important;
+  backdrop-filter: blur(8px) !important;
+}

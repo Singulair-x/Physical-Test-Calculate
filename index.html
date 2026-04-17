@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学生体质健康测试成绩计算与分析</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-title" data-i18n="navTitle">大学生体质健康测试成绩计算与分析</div>
+    <div class="nav-controls">
+      <button id="theme-btn" class="nav-select" style="cursor:pointer;" title="切换主题">💻</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1 data-i18n="headerTitle">大学生体质健康测试成绩计算与分析</h1>
+      <p data-i18n="headerSubtitle">计算体测分数、预估能否毕业、提分策略规划</p>
+    </header>
+
+    <main class="main-layout">
+      <div class="left-column">
+        
+        <section class="card">
+          <h2 data-i18n="basicInfoTitle">🧑‍🎓 基本信息</h2>
+          <div class="form-group row">
+            <div class="col">
+              <label>性别</label>
+              <div class="radio-group" id="gender-group">
+                <label class="radio-label"><input type="radio" name="gender" value="male" checked> 男</label>
+                <label class="radio-label"><input type="radio" name="gender" value="female"> 女</label>
+              </div>
+            </div>
+            <div class="col">
+              <label>年级</label>
+              <div class="radio-group" id="agegroup-group">
+                <label class="radio-label"><input type="radio" name="agegroup" value="大一" checked> 大一</label>
+                <label class="radio-label"><input type="radio" name="agegroup" value="大二"> 大二</label>
+                <label class="radio-label"><input type="radio" name="agegroup" value="大三"> 大三</label>
+                <label class="radio-label"><input type="radio" name="agegroup" value="大四"> 大四</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="test-items-section">
+          <h2 data-i18n="testScoreTitle">🏃 测试成绩录入</h2>
+          <p class="desc" data-i18n="testScoreDesc">请填写各项测试原始数据（未测项可留空）</p>
+          <div id="inputs-container" class="grid-container">
+            
+          </div>
+          <button id="calc-btn" class="primary-btn" data-i18n="calcTotalScoreBtn">计算</button>
+        </section>
+
+        <section class="card" id="grad-section">
+          <h2 data-i18n="gradTitle">🎓 毕业资格预估</h2>
+          <p class="desc" data-i18n="gradDesc"> 标准：【大四成绩 × 50% + 其他学年均分 × 50% ≥ 50】，未来学年成绩用当前数据估计</p>
+          <div class="form-group row" id="past-years-inputs">
+            
+          </div>
+          <button id="grad-btn" class="secondary-btn" data-i18n="gradCalcBtn">估计毕业资格</button>
+          <div id="grad-result" class="grad-result-box hidden"></div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        
+        <section class="card" id="result-section">
+          <h2>📊 成绩总览</h2>
+          
+          <div id="result-placeholder" class="empty-state">
+            <p>暂无数据，请在左侧录入成绩并点击计算</p>
+          </div>
+
+          <div id="result-content" class="hidden">
+            <div class="score-display">
+              <div class="score-box">
+                <span class="score-title">百分制总成绩</span>
+                <span class="score-value" id="hundred-score">--</span>
+              </div>
+              <div class="score-box">
+                <span class="score-title">折算体育课20分</span>
+                <span class="score-value highlighter" id="twenty-score">--</span>
+              </div>
+            </div>
+            <div id="details-container">
+              
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="strategy-section">
+          <h2>📈 成绩提高</h2>
+          
+          <div id="strategy-placeholder" class="empty-state">
+            <p>暂无建议，请先计算总分</p>
+          </div>
+
+          <div id="strategy-content-wrapper" class="hidden">
+            <div class="target-input-group" style="display:flex; gap:10px; margin-bottom: 15px;">
+              <input type="number" id="target-score" min="0" max="100" step="0.1" placeholder="设定预期目标分 (如 50)" style="flex:2;">
+              <button id="plan-btn" class="secondary-btn" style="flex:1;">提供建议</button>
+            </div>
+
+            <div id="strategy-content">
+              
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p><a href="https://github.com/singulair-x/Physical-Test-Calculate">Github</a></p>
+    </footer>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
